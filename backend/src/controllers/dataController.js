@@ -130,6 +130,17 @@ async function sendMail(req, res) {
 }
 
 
+async function getUsersData(req, res) {
+  try {
+    const username = req.params.username;
+    const users = await dataModel.getUsersData(username);
+    res.status(200).json(users);
+  } catch (error) {
+    console.error('Error:', error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+}
+
 module.exports = {
   checkUser,
   register,
@@ -137,5 +148,6 @@ module.exports = {
   getFile,
   login,
   confirmEmail,
-  sendMail
+  sendMail,
+  getUsersData
 };

@@ -56,11 +56,17 @@ async function getUser(username, password) {
   return user.rows[0];
 }
 
+async function getUsersData(username) {
+  const users = await pool.query('SELECT * FROM users WHERE username = $1 ', [username]);
+  return users.rows;
+}
+
 module.exports = {
   checkUser, 
   register,
   uploadFile,
   getFileData,
   getUser,
-  confirmEmailByUsername
+  confirmEmailByUsername,
+  getUsersData
 };

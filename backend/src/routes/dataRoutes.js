@@ -12,5 +12,6 @@ router.post('/api/fileupload', upload.single('file'), userController.uploadFile)
 router.get('/api/:fileId', userController.getFile);
 router.get('/api/confirmemail/:username', userController.confirmEmail);
 router.post('/api/email', userController.sendMail);
+router.get('/api/getUsersData/:username', userController.getUsersData);
 
 module.exports = router;
