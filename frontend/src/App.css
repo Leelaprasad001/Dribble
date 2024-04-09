@@ -1,0 +1,90 @@
+.container-fluid {
+  background-image: url('../public/home.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 90vh;
+}
+
+.banner h1{
+    padding-top: 10rem;
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+.arrow-down {
+  margin-top: 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@keyframes arrowBounce {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.arrow-down span {
+  animation: arrowBounce 1s infinite;
+}
+
+
+/* Media query for tablets (768px) */
+@media (max-width: 768px) {
+  .rcol1 {
+    display: none;
+  }
+  .rcol{
+    padding: 15px;
+  }
+  .rcol h1{
+    font-size: 18px !important;
+  }
+  .rcol p,label, input, button{
+    font-size: 14px !important;
+  }
+
+  .rcol .imgpreview{
+    width: 7rem !important;
+    height: 5rem !important;
+  }
+  .imgbox {
+    display: none;
+  }  
+  .hidden{
+    display: block !important;
+  }
+  .rcol2 h5{
+    font-size: .8rem !important;
+  }
+  .rcol2 {
+    padding: 1rem;
+  }
+  .rcol5{
+    display: none;
+  }
+  .rcol .icn{
+    font-size: 48px !important;
+  }
+
+  .rcol .icn2{
+    font-size: 2rem !important;
+  }
+
+  .rcol6 a{
+    font-size: 14px !important;
+  }
+}
+
+/* Media query for mobile devices (576px) */
+@media (max-width: 576px) {
+  .rcol1 {
+    display: none;
+  }
+}
