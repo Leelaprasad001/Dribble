@@ -20,12 +20,36 @@ async function register(req, res) {
     const hashedPassword = await bcrypt.hash(password, 10);
     await dataModel.register(name, username, email, hashedPassword, photo, location, bringsto);
 
+    const htmlContent = `
+      <h1>Confirm Your Email Address</h1>
+      <p>Dear Sir,</p>
+      <p>Welcome to Dribble! We're excited to have you join us.</p>
+      <p>To get started, please confirm your email address by clicking the button below:</p>
+      <p>
+          <a style="background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 10px 24px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 12px;
+            margin: 2px 1px;
+            cursor: pointer;" 
+          href="https://dribble-gru9.onrender.com/api/confirmemail/${username}">Confirm Email</a>
+      </p>
+      <p>If you have any questions or need assistance, feel free to reach out to our support team.</p>
+      <p>Thank you for choosing us!</p>
+      <p>Best regards,</p>
+      <p>Dribble Team</p>
+    `;
     await resend.emails.send({
-      from: 'onboarding@resend.dev',
+      from: 'dribble@example.com',
       to: email,
       subject: 'Confirm your email',
-      html: `<p>Hi ${name},</p><p>Click <a href="http://localhost:4000/api/confirmemail?username=${username}">here</a> to confirm your email address and activate your account.</p>`,
+      html: htmlContent
     });
+    
     
     res.status(201).json({ message: 'User created successfully' });
   } catch (error) {
