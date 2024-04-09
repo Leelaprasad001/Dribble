@@ -1,6 +1,6 @@
 const prod = {
     url: {
-        API_BASE_URL:'http://localhost:4000'
+        API_BASE_URL:'https://dribble-gru9.onrender.com'
     }
   }
   
